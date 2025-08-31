@@ -23,4 +23,3 @@ else
     json.roles []
   end
 end
-

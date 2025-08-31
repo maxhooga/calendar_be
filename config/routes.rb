@@ -1,14 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users, defaults: { format: :json }, path: 'api/v1',
+  devise_for :users, defaults: { format: :json }, path: "api/v1",
              controllers: {
-               invitations: 'api/v1/users/invitations'
+               invitations: "api/v1/users/invitations"
              }
   namespace :api do
     namespace :v1 do
       devise_scope :user do
         namespace :users do
-          post 'password_forgot', to: 'passwords#forgot'
-          post 'password_reset', to: 'passwords#reset'
+          post "password_forgot", to: "passwords#forgot"
+          post "password_reset", to: "passwords#reset"
         end
         resource :login, only: :create
         resource :logout, only: :create

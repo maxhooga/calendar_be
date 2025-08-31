@@ -26,9 +26,9 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = if Rails.application.credentials.smtp.present?
                            Rails.application.credentials.smtp[:user_name]
-                         else
-                           'test@example.com'
-                         end
+  else
+                           "test@example.com"
+  end
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -40,7 +40,7 @@ Devise.setup do |config|
   # Load and configure the ORM. Supports :active_record (default) and
   # :mongoid (bson_ext recommended) by default. Other ORMs may be
   # available as additional gems.
-  require 'devise/orm/active_record'
+  require "devise/orm/active_record"
 
   # ==> Configuration for any authentication mechanism
   # Configure which keys are used when authenticating a user. The default is
@@ -62,12 +62,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = [ :email ]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  config.strip_whitespace_keys = [ :email ]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -105,10 +105,10 @@ Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = Rails.application.credentials.devise[:jwt_secret_key]
     jwt.dispatch_requests = [
-      ['POST', %r{^/login$}]
+      [ "POST", %r{^/login$} ]
     ]
     jwt.revocation_requests = [
-      ['DELETE', %r{^/logout$}]
+      [ "DELETE", %r{^/logout$} ]
     ]
     jwt.expiration_time = 24.hours.to_i
   end
@@ -130,20 +130,20 @@ Devise.setup do |config|
     api.sign_up.extra_fields = []
 
     # Authorization
-    api.authorization.key = 'Authorization'
-    api.authorization.scheme = 'Bearer'
+    api.authorization.key = "Authorization"
+    api.authorization.scheme = "Bearer"
     api.authorization.location = :both # :header or :params or :both
-    api.authorization.params_key = 'access_token'
+    api.authorization.params_key = "access_token"
 
     # Base classes
-    api.base_token_model = 'Devise::Api::Token'
-    api.base_controller = '::DeviseController'
+    api.base_token_model = "Devise::Api::Token"
+    api.base_controller = "::DeviseController"
 
     # After successful callbacks
-    api.after_successful_sign_in = ->(_resource_owner, _token, _request) {}
-    api.after_successful_sign_up = ->(_resource_owner, _token, _request) {}
-    api.after_successful_refresh = ->(_resource_owner, _token, _request) {}
-    api.after_successful_revoke = ->(_resource_owner, _token, _request) {}
+    api.after_successful_sign_in = ->(_resource_owner, _token, _request) { }
+    api.after_successful_sign_up = ->(_resource_owner, _token, _request) { }
+    api.after_successful_refresh = ->(_resource_owner, _token, _request) { }
+    api.after_successful_revoke = ->(_resource_owner, _token, _request) { }
   end
 
   # By default, Devise cleans up the CSRF token on authentication to
@@ -214,7 +214,7 @@ Devise.setup do |config|
   # The class name of the inviting model. If this is nil,
   # the #invited_by association is declared to be polymorphic.
   # Default: nil
-  config.invited_by_class_name = 'User'
+  config.invited_by_class_name = "User"
 
   # The foreign key to the inviting model (if invited_by_class_name is set)
   # Default: :invited_by_id
@@ -315,7 +315,7 @@ Devise.setup do |config|
   # ==> Configuration for :recoverable
   #
   # Defines which key will be used when recovering the password for an account
-  config.reset_password_keys = [:email]
+  config.reset_password_keys = [ :email ]
 
   # Time interval you can reset your password with a reset password key.
   # Don't put a too small interval or your users won't have the time to
