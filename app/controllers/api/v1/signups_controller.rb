@@ -27,7 +27,7 @@ module Api
         end
 
         error_response = Devise::Api::Responses::ErrorResponse.new(request, resource_class:, **service.failure)
-        render json: { error: error_response.body[:error_description].join(', ') }, status: error_response.status
+        render json: { error: error_response.body[:error_description].join(", ") }, status: error_response.status
       end
 
       def sanitized_params

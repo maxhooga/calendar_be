@@ -38,14 +38,18 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
-  gem 'byebug'
+  gem "byebug"
 end
 
-gem 'rack-cors'
-gem 'annotate'
+gem "rack-cors"
+gem "annotate"
 
 
 gem "devise", "~> 4.9"
-gem 'devise-api', github: 'nejdetkadir/devise-api', branch: 'main'
-gem 'devise_invitable'
-gem 'devise-jwt'
+gem "devise-api", github: "nejdetkadir/devise-api", branch: "main"
+gem "devise_invitable"
+gem "devise-jwt"
+gem "rubocop"
+gem "rubocop-capybara", require: false
+gem "rubocop-factory_bot", require: false
+gem "rubocop-rails", require: false

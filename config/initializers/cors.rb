@@ -21,10 +21,10 @@
 
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins 'http://localhost:3001'  # or restrict to your React dev URL
-    resource '*',
+    origins "http://localhost:3001"  # or restrict to your React dev URL
+    resource "*",
              headers: :any,
-             expose: ['Authorization'],
-             methods: [:get, :post, :put, :patch, :delete, :options, :head]
+             expose: [ "Authorization" ],
+             methods: [ :get, :post, :put, :patch, :delete, :options, :head ]
   end
 end
